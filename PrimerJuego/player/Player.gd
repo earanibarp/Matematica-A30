@@ -15,12 +15,16 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("ui_right"):
 		position.x += 220 * delta
+
 	if Input.is_action_pressed("ui_left"):
 		position.x += -220 * delta
+		
 	if Input.is_action_pressed("ui_up"):
 		position.y += -220 * delta
+
 	if Input.is_action_pressed("ui_down"):
 		position.y += 220 * delta
+
 		
 	if position.x > 480:
 		position.x = 480
@@ -30,12 +34,20 @@ func _process(delta):
 		position.y = 720
 	if position.y < 0:
 		position.y = 0
-		
-#	get_node("AnimatedSprite").play("run")
-	$AnimatedSprite.play("run")
 	
-	if position.length() < 0:
+	if Input.is_action_pressed("ui_right") == true:
+		$AnimatedSprite.play("run")
+		$AnimatedSprite.flip_h = false
+	elif Input.is_action_pressed("ui_left") == true:
+		$AnimatedSprite.play("run")
+		$AnimatedSprite.flip_h = true
+	elif Input.is_action_pressed("ui_up") == true:
+		$AnimatedSprite.play("run")
+	elif Input.is_action_pressed("ui_down") == true:
+		$AnimatedSprite.play("run")
+	else:
 		$AnimatedSprite.play("idle")
+
 	
 	
 	
