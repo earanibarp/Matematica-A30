@@ -36,6 +36,7 @@ func _process(delta):
 		position.y = 0
 	
 	if Input.is_action_pressed("ui_right") == true:
+#		get_node("AnimatedSprite").play("run")
 		$AnimatedSprite.play("run")
 		$AnimatedSprite.flip_h = false
 	elif Input.is_action_pressed("ui_left") == true:
@@ -48,10 +49,7 @@ func _process(delta):
 	else:
 		$AnimatedSprite.play("idle")
 
-	
-	
-	
-	
-	
-	
-	
+
+func _on_Player_area_entered(area):
+	if area.is_in_group("gem"):
+		area.pickup()
