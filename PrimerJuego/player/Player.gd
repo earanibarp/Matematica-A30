@@ -1,10 +1,6 @@
 extends Area2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+signal picked
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,3 +49,9 @@ func _process(delta):
 func _on_Player_area_entered(area):
 	if area.is_in_group("gem"):
 		area.pickup()
+		$AudioGem.play()
+		emit_signal("picked")
+		
+func game_over():
+	set_process(false)
+	$AnimatedSprite.play("hurt")
