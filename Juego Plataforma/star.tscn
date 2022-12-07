@@ -4,13 +4,15 @@
 [ext_resource path="res://star.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 19, 19 )
 
-[node name="star" type="Area2D"]
+[node name="star" type="Area2D" groups=["star"]]
+scale = Vector2( 2, 2 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 52, 29, 16, 16 )

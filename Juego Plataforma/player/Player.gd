@@ -58,3 +58,4 @@ func transition_to(new_state):
 			new_animation = "hurt"
 		JUMP:
 			new_animation = "jump"
+
